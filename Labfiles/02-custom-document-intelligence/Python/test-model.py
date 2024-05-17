@@ -3,7 +3,7 @@ from azure.ai.formrecognizer import DocumentAnalysisClient
 from dotenv import load_dotenv
 import os
 
-# Get configuration settings 
+# Get Configuration Settings: 
 load_dotenv()
 endpoint = os.getenv("DOC_INTELLIGENCE_ENDPOINT")
 key = os.getenv("DOC_INTELLIGENCE_KEY")
@@ -15,7 +15,7 @@ document_analysis_client = DocumentAnalysisClient(
     endpoint=endpoint, credential=AzureKeyCredential(key)
 )
 
-# Make sure your document's type is included in the list of document types the custom model can analyze
+# Make sure your document's type is included in the list of document types the custom model can analyze:
 response = document_analysis_client.begin_analyze_document_from_url(model_id, formUrl)
 result = response.result()
 
